@@ -26,6 +26,46 @@ class LoginPageLocators:
     YANDEX_O_AUTH = (By.XPATH, "//*[@data-l=\"t,yandex\"]//i")
     APPLE_O_AUTH = (By.XPATH, "//*[@data-l=\"t,apple\"]//i")
 
+    # ERROR TEXTS
+    EMPTY_LOGIN = (By.XPATH, "//*[text()=\"Введите логин\"]")
+    EMPTY_PASSWORD = (By.XPATH, "//*[text()=\"Введите пароль\"]")
+    INCORRECT_LOGIN_OR_PASSWORD = (By.XPATH, "//*[text()=\"Неправильно указан логин и/или пароль\"]")
+
 
 class LoginPageHelper(BasePage):
-    pass
+    def __init__(self, driver):
+        self.driver = driver
+        self.check_page()
+
+    def check_page(self):
+        self.find_element(LoginPageLocators.LOGIN_TAB)
+        self.find_element(LoginPageLocators.QR_CODE_TAB)
+
+        self.find_element(LoginPageLocators.LOGIN_FIELD)
+        self.find_element(LoginPageLocators.PASSWORD_FIELD)
+        self.find_element(LoginPageLocators.VISIBLE_PASSWORD_FIELD)
+
+        self.find_element(LoginPageLocators.LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.LOGIN_QR_CODE_BUTTON)
+        self.find_element(LoginPageLocators.FORGET_ACCOUNT_BUTTON)
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON)
+
+        self.find_element(LoginPageLocators.VK_O_AUTH)
+        self.find_element(LoginPageLocators.MAIL_O_AUTH)
+        self.find_element(LoginPageLocators.GOOGLE_O_AUTH)
+        self.find_element(LoginPageLocators.YANDEX_O_AUTH)
+        self.find_element(LoginPageLocators.APPLE_O_AUTH)
+
+    def click_login(self):
+        self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
+
+    def get_error_text(self, type_error):
+        if type_error == "empty login":
+            return self.find_element(LoginPageLocators.EMPTY_LOGIN).text
+        elif type_error == "empty password":
+            return self.find_element(LoginPageLocators.EMPTY_PASSWORD).text
+        else:
+            return self.find_element(LoginPageLocators.INCORRECT_LOGIN_OR_PASSWORD).text
+
+    def enter_login(self):
+        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys("login_gav_gav")
