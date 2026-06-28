@@ -1,5 +1,3 @@
-from time import sleep
-
 import allure
 from pygments.lexers import python
 
@@ -68,14 +66,15 @@ class LoginPageHelper(BasePage):
 
     @allure.step("Getting error text")
     def get_error_text(self, type_error):
-        sleep(0.3)
-        self.attach_screenshot()
         if type_error == "empty login":
-            return self.find_element(LoginPageLocators.EMPTY_LOGIN).text
+            element_text = self.find_element(LoginPageLocators.EMPTY_LOGIN)
         elif type_error == "empty password":
-            return self.find_element(LoginPageLocators.EMPTY_PASSWORD).text
+            element_text = self.find_element(LoginPageLocators.EMPTY_PASSWORD)
         else:
-            return self.find_element(LoginPageLocators.INCORRECT_LOGIN_OR_PASSWORD).text
+            element_text = self.find_element(LoginPageLocators.INCORRECT_LOGIN_OR_PASSWORD)
+
+        self.attach_screenshot()
+        return element_text.text
 
     @allure.step("Entering the login")
     def enter_login(self):
