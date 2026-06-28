@@ -1,3 +1,6 @@
+import allure
+from pygments.lexers import python
+
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
@@ -56,16 +59,24 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.YANDEX_O_AUTH)
         self.find_element(LoginPageLocators.APPLE_O_AUTH)
 
+    @allure.step("Clicking the button \"Войти\"")
     def click_login(self):
+        self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
 
+    @allure.step("Getting error text")
     def get_error_text(self, type_error):
         if type_error == "empty login":
-            return self.find_element(LoginPageLocators.EMPTY_LOGIN).text
+            element_text = self.find_element(LoginPageLocators.EMPTY_LOGIN)
         elif type_error == "empty password":
-            return self.find_element(LoginPageLocators.EMPTY_PASSWORD).text
+            element_text = self.find_element(LoginPageLocators.EMPTY_PASSWORD)
         else:
-            return self.find_element(LoginPageLocators.INCORRECT_LOGIN_OR_PASSWORD).text
+            element_text = self.find_element(LoginPageLocators.INCORRECT_LOGIN_OR_PASSWORD)
 
+        self.attach_screenshot()
+        return element_text.text
+
+    @allure.step("Entering the login")
     def enter_login(self):
+        self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys("login_gav_gav")
