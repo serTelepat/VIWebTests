@@ -8,6 +8,8 @@ from pages.login_page import LoginPageHelper
 #### ------- CONSTANTS ------- ####
 BASE_URL = "https://ok.ru/"
 
+LOGIN_TEXT = "login_gav_gav"
+
 EMPTY_LOGIN_ERROR = "Введите логин"
 EMPTY_PASSWORD_ERROR = "Введите пароль"
 
@@ -30,6 +32,6 @@ def test_empty_password(browser):
         BasePage(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
-    login_page.enter_login()
+    login_page.enter_login(LOGIN_TEXT)
     login_page.click_login()
     assert login_page.get_error_text("empty password") == EMPTY_PASSWORD_ERROR

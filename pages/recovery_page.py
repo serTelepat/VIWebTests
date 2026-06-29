@@ -10,7 +10,7 @@ class RecoveryPageLocators:
     SUPPORT_BUTTON = (By.XPATH, "//*[@data-l=\"t,support\"]")
 
 
-class RecoveryPageHelpers(BasePage):
+class RecoveryPageHelper(BasePage):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()

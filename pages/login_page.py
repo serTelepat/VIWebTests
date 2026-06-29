@@ -82,6 +82,16 @@ class LoginPageHelper(BasePage):
         return element_text.text
 
     @allure.step("Entering the login")
-    def enter_login(self):
+    def enter_login(self, login):
+        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(login)
         self.attach_screenshot()
-        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys("login_gav_gav")
+
+    @allure.step("Entering the password")
+    def enter_password(self, password):
+        self.find_element(LoginPageLocators.PASSWORD_FIELD).send_keys(password)
+        self.attach_screenshot()
+
+    @allure.step("Go to recovery page")
+    def click_recovery(self):
+        self.attach_screenshot()
+        self.find_element(LoginPageLocators.RECOVER_BUTTON).click()
