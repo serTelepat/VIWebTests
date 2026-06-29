@@ -16,7 +16,9 @@ class RecoveryPageHelper(BasePage):
         self.check_page()
 
     def check_page(self):
-        self.find_element(*RecoveryPageLocators.PHONE_BUTTON)
-        self.find_element(*RecoveryPageLocators.EMAIL_BUTTON)
-        self.find_element(*RecoveryPageLocators.QR_CODE)
-        self.find_element(*RecoveryPageLocators.SUPPORT_BUTTON)
+        self.find_element(RecoveryPageLocators.PHONE_BUTTON)
+        self.find_element(RecoveryPageLocators.EMAIL_BUTTON)
+        self.find_element(RecoveryPageLocators.QR_CODE)
+        self.find_element(RecoveryPageLocators.SUPPORT_BUTTON)
+        with allure.step("Checking the correcting page load"):
+            self.attach_screenshot()

@@ -10,7 +10,7 @@ class BasePage:
 
     def find_element(self, locator, time=5):
         return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_element_located(locator),
-              message=f"{locator} element not found")
+                                                      message=f"{locator} element not found")
 
     @allure.step("Opening the page")
     def get_url(self, url):

@@ -63,6 +63,8 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.GOOGLE_O_AUTH)
         self.find_element(LoginPageLocators.YANDEX_O_AUTH)
         self.find_element(LoginPageLocators.APPLE_O_AUTH)
+        with allure.step("Checking the correcting page load"):
+            self.attach_screenshot()
 
     @allure.step("Clicking the button \"Войти\"")
     def click_login(self):
@@ -95,3 +97,16 @@ class LoginPageHelper(BasePage):
     def click_recovery(self):
         self.attach_screenshot()
         self.find_element(LoginPageLocators.RECOVER_BUTTON).click()
+
+    @allure.step("Log in until the recovery form appears")
+    def click_login_until_appearing_recover_form(self, time_for_recover_form):
+        toggle = False
+        while not toggle:
+            try:
+                self.attach_screenshot()
+                self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
+                self.find_element(LoginPageLocators.RECOVER_BUTTON, time_for_recover_form)
+                toggle = True
+            except Exception:
+                toggle = False
+                continue
