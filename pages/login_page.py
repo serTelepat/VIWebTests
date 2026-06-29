@@ -1,6 +1,4 @@
 import allure
-from pygments.lexers import python
-
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
