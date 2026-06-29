@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 class LoginPageLocators:
 
+    ### ---------- BASIC LOGIN FORM ---------- ###
     # TABS
     LOGIN_TAB = (By.XPATH, "//*[text()=\"Вход\"]")
     QR_CODE_TAB = (By.XPATH, "//*[text()=\"QR-код\"]")
@@ -33,6 +34,12 @@ class LoginPageLocators:
     EMPTY_LOGIN = (By.XPATH, "//*[text()=\"Введите логин\"]")
     EMPTY_PASSWORD = (By.XPATH, "//*[text()=\"Введите пароль\"]")
     INCORRECT_LOGIN_OR_PASSWORD = (By.XPATH, "//*[text()=\"Неправильно указан логин и/или пароль\"]")
+
+
+    ### ---------- ADDITIONAL RESTORE PROFILE FORM ---------- ###
+    # BUTTONS
+    RECOVER_BUTTON = (By.XPATH, "//*[@href=\"https://ok.ru/dk?st.cmd=anonymRecoveryStart\"]")
+    CANCEL_RECOVER_BUTTON = (By.XPATH, "//*[@role=\"group\"]//button")
 
 
 class LoginPageHelper(BasePage):
