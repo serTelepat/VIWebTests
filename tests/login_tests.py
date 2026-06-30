@@ -6,7 +6,7 @@ from pages.login_page import LoginPageHelper
 
 
 #### ------- CONSTANTS ------- ####
-BASE_URL = "https://ok.ru/"
+BASE_URL = "https://sn.rv-school.ru/"
 
 LOGIN_TEXT = "login_gav_gav"
 

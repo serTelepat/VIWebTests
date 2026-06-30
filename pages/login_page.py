@@ -7,37 +7,30 @@ class LoginPageLocators:
 
     ### ---------- BASIC LOGIN FORM ---------- ###
     # TABS
-    LOGIN_TAB = (By.XPATH, "//*[text()=\"Вход\"]")
-    QR_CODE_TAB = (By.XPATH, "//*[text()=\"QR-код\"]")
+    LOGIN_TAB = (By.ID, "tabLogin")
+    QR_CODE_TAB = (By.ID, "tabQr")
 
     # FIELDS AND THEIR BUTTONS
-    LOGIN_FIELD = (By.ID, "field_email")
-    PASSWORD_FIELD = (By.ID, "field_password")
-    VISIBLE_PASSWORD_FIELD = (By.XPATH, "//*[@class=\"vkuiFormField__scrollContainer\"]//button")
+    LOGIN_FIELD = (By.ID, "login-phone-email")
+    PASSWORD_FIELD = (By.ID, "login-password")
+    # VISIBLE_PASSWORD_FIELD = (By.ID, "")
 
     # BUTTONS UNDER FIELDS
-    LOGIN_BUTTON = (By.XPATH, "//button[@data-test-id=\"enter-action\"]")
-    LOGIN_QR_CODE_BUTTON = (By.XPATH, "//button[@label=\"Войти по QR-коду\"]")
-    FORGET_ACCOUNT_BUTTON = (By.XPATH, "//button[@aria-label=\"Не получается войти?\"]")
-    REGISTRATION_BUTTON = (By.XPATH, "//div[contains(@class, \"LoginFormMain-module__bottom\")]//button")
+    LOGIN_BUTTON = (By.ID, "login-submit-btn")
+    FORGET_PASSWORD_BUTTON = (By.ID, "forgot-password-link")
 
-    # OAUTH LINKS
-    VK_O_AUTH = (By.XPATH, "//*[@data-l=\"t,vkc\"]//i")
-    MAIL_O_AUTH = (By.XPATH, "//*[@data-l=\"t,mailru\"]//i")
-    GOOGLE_O_AUTH =  (By.XPATH, "//*[@data-l=\"t,google\"]//i")
-    YANDEX_O_AUTH = (By.XPATH, "//*[@data-l=\"t,yandex\"]//i")
-    APPLE_O_AUTH = (By.XPATH, "//*[@data-l=\"t,apple\"]//i")
+    # BUTTONS LEFT FORM
+    LOGIN_BUTTON_LEFT = (By.ID,  "hero-login-btn")
+    REGISTRATION_BUTTON_LEFT = (By.ID, "hero-register-btn")
 
     # ERROR TEXTS
-    EMPTY_LOGIN = (By.XPATH, "//*[text()=\"Введите логин\"]")
-    EMPTY_PASSWORD = (By.XPATH, "//*[text()=\"Введите пароль\"]")
-    INCORRECT_LOGIN_OR_PASSWORD = (By.XPATH, "//*[text()=\"Неправильно указан логин и/или пароль\"]")
-
+    ERROR_TEXT_FORM = (By.ID, "login-error")
 
     ### ---------- ADDITIONAL RESTORE PROFILE FORM ---------- ###
     # BUTTONS
-    RECOVER_BUTTON = (By.XPATH, "//*[@href=\"https://ok.ru/dk?st.cmd=anonymRecoveryStart\"]")
-    CANCEL_RECOVER_BUTTON = (By.XPATH, "//*[@role=\"group\"]//button")
+    RECOVER_BUTTON_RECOVER_FORM = (By.ID, "lockout-recover-btn")
+    CANCEL_RECOVER_BUTTON_RECOVER_FORM = (By.ID, "lockout-cancel-btn")
+    REGISTER_BUTTON_RECOVER_FORM = (By.ID, "lockout-register-btn")
 
 
 class LoginPageHelper(BasePage):

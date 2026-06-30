@@ -7,7 +7,7 @@ from pages.recovery_page import RecoveryPageHelper
 
 
 #### ------- CONSTANTS ------- ####
-BASE_URL = "https://ok.ru/"
+BASE_URL = "https://sn.rv-school.ru/"
 
 LOGIN_TEXT = "login_gav_gav"
 PASSWORD_TEXT = "123"
