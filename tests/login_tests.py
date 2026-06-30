@@ -14,7 +14,6 @@ EMPTY_LOGIN_OR_PASSWORD_ERROR = "Введите телефон, email или л�
 INCORRECT_LOGIN_DATA = ("Пользователь с таким телефоном, почтой или логином не найден. "
                         "Проверьте данные и попробуйте снова.")
 
-print(INCORRECT_LOGIN_DATA)
 #### ------- TESTS ------ ####
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when authorization form is empty")
