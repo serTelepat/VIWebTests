@@ -12,7 +12,8 @@ LOGIN_TEXT = "login_gav_gav"
 
 EMPTY_LOGIN_OR_PASSWORD_ERROR = "Введите телефон, email или логин и пароль."
 INCORRECT_LOGIN_DATA = ("Пользователь с таким телефоном, почтой или логином не найден. "
-                        "Проверьте данные и попробуйте снова.")
+                        + "Проверьте данные и попробуйте снова.")
+
 
 #### ------- TESTS ------ ####
 @allure.suite("Checking authorization form")

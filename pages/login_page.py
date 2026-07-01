@@ -46,8 +46,8 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.PASSWORD_FIELD)
         # self.find_element(LoginPageLocators.VISIBLE_PASSWORD_FIELD)
         self.find_element(LoginPageLocators.LOGIN_BUTTON)
-
         self.find_element(LoginPageLocators.FORGET_PASSWORD_BUTTON)
+
         self.find_element(LoginPageLocators.LOGIN_BUTTON_LEFT)
         self.find_element(LoginPageLocators.REGISTRATION_BUTTON_LEFT)
 
@@ -81,15 +81,6 @@ class LoginPageHelper(BasePage):
 
     @allure.step("Log in until the recovery form appears")
     def click_login_until_appearing_recover_form(self):
-        toggle = False
-        attempts = 0
-        while not toggle and attempts < 5:
-            try:
-                self.attach_screenshot()
-                self.find_element_to_clickable(LoginPageLocators.LOGIN_BUTTON).click()
-                self.find_element(LoginPageLocators.RECOVER_BUTTON_RECOVER_FORM)
-                toggle = True
-            except Exception:
-                toggle = False
-                attempts += 1
-                continue
+        for attempt in range(3):
+            self.attach_screenshot()
+            self.find_element_to_clickable(LoginPageLocators.LOGIN_BUTTON).click()
