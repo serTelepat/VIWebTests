@@ -84,3 +84,8 @@ class LoginPageHelper(BasePage):
         for attempt in range(3):
             self.attach_screenshot()
             self.find_element_to_clickable(LoginPageLocators.LOGIN_BUTTON).click()
+
+    @allure.step("Click the registration button")
+    def click_registration(self):
+        self.attach_screenshot()
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON_LEFT).click()
