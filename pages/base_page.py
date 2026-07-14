@@ -14,7 +14,11 @@ class BasePage:
 
     def find_element_to_clickable(self, locator, time=5):
         return WebDriverWait(self.driver, time).until(expected_conditions.element_to_be_clickable(locator),
-                                                      message=f"{locator} not clickable clickable")
+                                                      message=f"{locator} element not clickable")
+
+    def find_elements(self, locator, time=5):
+        return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_all_elements_located(locator),
+                                                      message=f"{locator} elements not found")
 
     @allure.step("Opening the page")
     def get_url(self, url):
