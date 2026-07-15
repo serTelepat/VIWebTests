@@ -28,6 +28,8 @@ class RegistrationPageLocators:
     GET_CODE_BTN = (By.ID, "phone-send-code-btn")
     CANCEL_BTN = (By.ID, "phone-cancel-btn")
 
+    SELECTED_COUNTRY_OPTION = (By.CSS_SELECTOR, "select[data-test-id='phone-country-select'] option:checked")
+
 
 class RegistrationPageHelper(BasePage):
     def __init__(self, driver):
@@ -81,5 +83,6 @@ class RegistrationPageHelper(BasePage):
         return country_text.get_attribute("text")
 
     def get_phone_field_value(self):
-        value = self.find_element(RegistrationPageLocators.COUNTRY_LIST)
+        # value = self.find_element(RegistrationPageLocators.COUNTRY_LIST)
+        value = self.find_element(RegistrationPageLocators.SELECTED_COUNTRY_OPTION)
         return value.text

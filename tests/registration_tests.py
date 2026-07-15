@@ -21,4 +21,4 @@ def test_registration_random_country(browser):
     registration_page.click_registration_by_phone_btn()
     selected_country_text = registration_page.select_random_country()
     actual_country_text = registration_page.get_phone_field_value()
-    assert selected_country_text == actual_country_text
+    assert selected_country_text == actual_country_text, "The displayed country does not match the selected one."
