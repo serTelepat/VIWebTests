@@ -19,4 +19,6 @@ def test_registration_random_country(browser):
 
     registration_page = RegistrationPageHelper(browser)
     registration_page.click_registration_by_phone_btn()
-    registration_page.select_random_country()
+    selected_country_text = registration_page.select_random_country()
+    actual_country_text = registration_page.get_phone_field_value()
+    assert selected_country_text == actual_country_text

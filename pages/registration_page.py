@@ -74,5 +74,12 @@ class RegistrationPageHelper(BasePage):
 
         country_items = self.find_elements(RegistrationPageLocators.COUNTRY_ITEM)
         with allure.step("Click the random country in list"):
+            country_text = country_items[random_number]
             country_items[random_number].click()
             self.attach_screenshot()
+
+        return country_text.get_attribute("text")
+
+    def get_phone_field_value(self):
+        value = self.find_element(RegistrationPageLocators.COUNTRY_LIST)
+        return value.text
