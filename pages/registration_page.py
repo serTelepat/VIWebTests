@@ -22,7 +22,7 @@ class RegistrationPageLocators:
 
     ### ---------- REGISTRATION FORM BY PHONE ---------- ###
     COUNTRY_LIST = (By.ID, "phone-country-select")
-    COUNTRY_ITEM = (By.XPATH, "//*[contains(@data-test-id, \"phone-country-option\")]")
+    COUNTRY_ITEM = (By.XPATH, "//*[contains(@data-test-id, 'phone-country-option')]")
 
     PHONE_FIELD = (By.ID, "phone-number-input")
     GET_CODE_BTN = (By.ID, "phone-send-code-btn")

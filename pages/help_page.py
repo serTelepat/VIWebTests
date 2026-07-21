@@ -8,37 +8,37 @@ from selenium.webdriver.common.action_chains import ActionChains
 class HelpPageLocators:
 
     ### ---------- BASIC HELP PAGE ---------- ###
-    # TOOLBAR
-    LOGIN_BUTTON = (By.XPATH, "//*[@data-module=\"AuthLoginPopup\"]")
-    VK_SERVICES_BUTTON = (By.XPATH, "//*[@aria-label=\"Сервисы VK\"]")
-    SEARCH_BUTTON = (By.XPATH, "//*[@class=\"toolbar_search_mini-button\"]")
+    # # TOOLBAR
+    # LOGIN_BUTTON = (By.XPATH, "//*[@data-module='AuthLoginPopup']")
+    # VK_SERVICES_BUTTON = (By.XPATH, "//*[@aria-label='Сервисы VK']")
+    # SEARCH_BUTTON = (By.XPATH, "//*[@class='toolbar_search_mini-button']")
 
     # MAIN SEARCH BLOCK
-    SEARCH_BTN_OF_SEARCH_BLCK = (By.XPATH, "//*[@data-tsid=\"button_to_search\"]")
-    SEARCH_BAR_OF_SEARCH_BLCK = (By.XPATH, "//*[@data-tsid=\"help_search_input\"]")
+    SEARCH_BTN_OF_SEARCH_BLCK = (By.XPATH, "//*[@data-tsid='button_to_search']")
+    SEARCH_BAR_OF_SEARCH_BLCK = (By.XPATH, "//*[@data-tsid='help_search_input']")
 
-    ACCOUNT_RECOVER_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()=\"восстановить профиль\"]")
-    PASSWORD_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()=\"пароль\"]")
-    UNLOCKING_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()=\"разблокировать\"]")
-    PHOTO_WITH_CODE_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()=\"фото с кодом\"]")
-    REGISTRATION_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()=\"регистрация\"]")
+    ACCOUNT_RECOVER_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()='восстановить профиль']")
+    PASSWORD_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()='пароль']")
+    UNLOCKING_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()='разблокировать']")
+    PHOTO_WITH_CODE_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()='фото с кодом']")
+    REGISTRATION_INFO_OF_SEARCH_BLCK = (By.XPATH, "//*[text()='регистрация']")
 
-    # MAIN WIDGET
-    HELP_BUTTON = (By.XPATH, "//*[@href=\"/help\"]//span")
+    # HELP PAGE BREADCRUMBS
+    HELP_TAB = (By.XPATH, "//*[@href='/help']//span")
 
-    TODAY_WIDGET = (By.XPATH, "//*[@href=\"/help/segodnya-aktualno\"]")
-    REGISTRATION_WIDGET = (By.XPATH, "//*[@href=\"/help/registraciya\"]")
-    MY_PROFILE_WIDGET = (By.XPATH, "//*[@href=\"/help/moi-profil\"]")
-    COMMUNICATION_WIDGET = (By.XPATH, "//*[@href=\"/help/obshchenie\"]")
-    PROFILE_ACCESS_WIDGET = (By.XPATH, "//*[@href=\"/help/dostup-k-profilu\"]")
-    SECURITY_WIDGET = (By.XPATH, "//*[@href=\"/help/bezopasnost\"]")
-    GROUPS_WIDGET = (By.XPATH, "href=\"/help/gruppy\"")
-    PAID_FUNCTIONAL_WIDGET = (By.XPATH, "//*[@href=\"/help/platnye-funkcii\"]")
-    VIOLATIONS_AND_SPAM_WIDGET = (By.XPATH, "//*[@href=\"/help/narusheniya-i-spam\"]")
-    GAMES_AND_APPLICATIONS_WIDGET = (By.XPATH, "//*[@href=\"/help/igry-i-prilojeniya\"]")
-    OTHER_SERVICES_WIDGET = (By.XPATH,  "//*[@href=\"/help/drugie-servisy\"]")
-    USEFUL_INFO_WIDGET = (By.XPATH, "//*[@href=\"/help/poleznaya-informaciya\"]")
-    ADVERTISEMENT_CABINET_WIDGET = (By.XPATH, "//*[@href=\"/help/reklamnyi-kabinet\"]")
+    TODAY_WIDGET = (By.XPATH, "//*[@href='/help/segodnya-aktualno']")
+    REGISTRATION_WIDGET = (By.XPATH, "//*[@href='/help/registraciya']")
+    MY_PROFILE_WIDGET = (By.XPATH, "//*[@href='/help/moi-profil']")
+    COMMUNICATION_WIDGET = (By.XPATH, "//*[@href='/help/obshchenie']")
+    PROFILE_ACCESS_WIDGET = (By.XPATH, "//*[@href='/help/dostup-k-profilu']")
+    SECURITY_WIDGET = (By.XPATH, "//*[@href='/help/bezopasnost']")
+    GROUPS_WIDGET = (By.XPATH, "href='/help/gruppy'")
+    PAID_FUNCTIONAL_WIDGET = (By.XPATH, "//*[@href='/help/platnye-funkcii']")
+    VIOLATIONS_AND_SPAM_WIDGET = (By.XPATH, "//*[@href='/help/narusheniya-i-spam']")
+    GAMES_AND_APPLICATIONS_WIDGET = (By.XPATH, "//*[@href='/help/igry-i-prilojeniya']")
+    OTHER_SERVICES_WIDGET = (By.XPATH,  "//*[@href='/help/drugie-servisy']")
+    USEFUL_INFO_WIDGET = (By.XPATH, "//*[@href='/help/poleznaya-informaciya']")
+    ADVERTISEMENT_CABINET_WIDGET = (By.XPATH, "//*[@href='/help/reklamnyi-kabinet']")
 
 
 class HelpPageHelper(BasePage):
@@ -59,7 +59,7 @@ class HelpPageHelper(BasePage):
         self.find_element(HelpPageLocators.PHOTO_WITH_CODE_INFO_OF_SEARCH_BLCK)
         self.find_element(HelpPageLocators.REGISTRATION_INFO_OF_SEARCH_BLCK)
 
-        self.find_element(HelpPageLocators.HELP_BUTTON)
+        self.find_element(HelpPageLocators.HELP_TAB)
         self.find_element(HelpPageLocators.TODAY_WIDGET)
         self.find_element(HelpPageLocators.REGISTRATION_WIDGET)
         self.find_element(HelpPageLocators.MY_PROFILE_WIDGET)
@@ -74,6 +74,6 @@ class HelpPageHelper(BasePage):
         self.find_element(HelpPageLocators.USEFUL_INFO_WIDGET)
         self.find_element(HelpPageLocators.ADVERTISEMENT_CABINET_WIDGET)
 
-    def scroll_to_item(self, locator):
+    def scroll_to_item_and_click(self, locator):
         scroll_element = self.find_element(locator)
         ActionChains(self.driver).scroll_to_element(scroll_element).click(scroll_element).perform()
