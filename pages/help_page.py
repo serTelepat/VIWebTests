@@ -26,6 +26,7 @@ class HelpPageLocators:
     # HELP PAGE BREADCRUMBS
     HELP_TAB = (By.XPATH, "//*[@href='/help']//span")
 
+    # MAIN BLOCK
     TODAY_WIDGET = (By.XPATH, "//*[@href='/help/segodnya-aktualno']")
     REGISTRATION_WIDGET = (By.XPATH, "//*[@href='/help/registraciya']")
     MY_PROFILE_WIDGET = (By.XPATH, "//*[@href='/help/moi-profil']")
