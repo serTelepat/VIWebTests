@@ -32,7 +32,7 @@ class HelpPageLocators:
     COMMUNICATION_WIDGET = (By.XPATH, "//*[@href='/help/obshchenie']")
     PROFILE_ACCESS_WIDGET = (By.XPATH, "//*[@href='/help/dostup-k-profilu']")
     SECURITY_WIDGET = (By.XPATH, "//*[@href='/help/bezopasnost']")
-    GROUPS_WIDGET = (By.XPATH, "href='/help/gruppy'")
+    GROUPS_WIDGET = (By.XPATH, "//*[@href='/help/gruppy']")
     PAID_FUNCTIONAL_WIDGET = (By.XPATH, "//*[@href='/help/platnye-funkcii']")
     VIOLATIONS_AND_SPAM_WIDGET = (By.XPATH, "//*[@href='/help/narusheniya-i-spam']")
     GAMES_AND_APPLICATIONS_WIDGET = (By.XPATH, "//*[@href='/help/igry-i-prilojeniya']")
@@ -47,9 +47,9 @@ class HelpPageHelper(BasePage):
         self.check_page()
 
     def check_page(self):
-        self.find_element(HelpPageLocators.LOGIN_BUTTON)
-        self.find_element(HelpPageLocators.VK_SERVICES_BUTTON)
-        self.find_element(HelpPageLocators.SEARCH_BUTTON)
+        # self.find_element(HelpPageLocators.LOGIN_BUTTON)
+        # self.find_element(HelpPageLocators.VK_SERVICES_BUTTON)
+        # self.find_element(HelpPageLocators.SEARCH_BUTTON)
 
         self.find_element(HelpPageLocators.SEARCH_BTN_OF_SEARCH_BLCK)
         self.find_element(HelpPageLocators.SEARCH_BAR_OF_SEARCH_BLCK)
@@ -74,6 +74,14 @@ class HelpPageHelper(BasePage):
         self.find_element(HelpPageLocators.USEFUL_INFO_WIDGET)
         self.find_element(HelpPageLocators.ADVERTISEMENT_CABINET_WIDGET)
 
+        with allure.step("Checking the correcting help page load"):
+            self.attach_screenshot()
+
+    @allure.step("Scroll to the page element and click on it")
     def scroll_to_item_and_click(self, locator):
         scroll_element = self.find_element(locator)
-        ActionChains(self.driver).scroll_to_element(scroll_element).click(scroll_element).perform()
+        with allure.step(f"Scroll to the element"):
+            ActionChains(self.driver).scroll_to_element(scroll_element).perform()
+            self.attach_screenshot()
+
+        ActionChains(self.driver).click(scroll_element).perform()

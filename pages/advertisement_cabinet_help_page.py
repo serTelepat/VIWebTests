@@ -101,7 +101,7 @@ class AdvertisementPageHelper(BasePage):
         self.find_element(AdvertisementPageLocators.SEARCH_BAR_OF_SEARCH_BLCK)
 
         self.find_element(AdvertisementPageLocators.HELP_TAB)
-        self.find_element(AdvertisementPageLocators.ADVERTISEMENT_CABINET_TAB)
+        self.find_element(AdvertisementPageLocators.TEXT_ADVERTISEMENT_CABINET_TAB)
 
         self.find_element(AdvertisementPageLocators.GET_LINK_BUTTON)
         self.find_element(AdvertisementPageLocators.COMMON_QUESTIONS)
@@ -124,3 +124,6 @@ class AdvertisementPageHelper(BasePage):
         self.find_element(AdvertisementPageLocators.HOW_TO_RECOVER_DELETED_PROFILE)
         self.find_element(AdvertisementPageLocators.HOW_TO_TURN_OFF_ADBLOCK_IN_YANDEX)
         self.find_element(AdvertisementPageLocators.WRITE_TO_TECH_SUPPORT)
+
+        with allure.step("Checking the correcting advertisement profile help page loading"):
+            self.attach_screenshot()

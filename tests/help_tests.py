@@ -13,7 +13,9 @@ BASE_URL = "https://ok.ru/help"
 @allure.suite("Checking the help page")
 @allure.title("Checking the scrolling the help page and redirection to advertisement page")
 def test_scrolling_and_redirection_to_advertisement_page(browser):
-    BasePage(browser).get_url(BASE_URL)
+    with allure.step(f"Open the {BASE_URL} page"):
+        BasePage(browser).get_url(BASE_URL)
+
     help_page = HelpPageHelper(browser)
     help_page.scroll_to_item_and_click(HelpPageLocators.ADVERTISEMENT_CABINET_WIDGET)
     AdvertisementPageHelper(browser)

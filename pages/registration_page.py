@@ -48,7 +48,7 @@ class RegistrationPageHelper(BasePage):
         self.find_element(RegistrationPageLocators.REGISTER_BY_PHONE_BTN)
         self.find_element(RegistrationPageLocators.LOGIN_BTN)
 
-        with allure.step("Checking the correcting page load"):
+        with allure.step("Checking the correcting registration page load"):
             self.attach_screenshot()
 
     def check_page_for_phone_registration_form(self):
@@ -83,6 +83,5 @@ class RegistrationPageHelper(BasePage):
         return country_text.get_attribute("text")
 
     def get_phone_field_value(self):
-        # value = self.find_element(RegistrationPageLocators.COUNTRY_LIST)
         value = self.find_element(RegistrationPageLocators.SELECTED_COUNTRY_OPTION)
         return value.text
