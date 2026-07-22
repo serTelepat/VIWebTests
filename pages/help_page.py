@@ -84,5 +84,4 @@ class HelpPageHelper(BasePage):
         with allure.step(f"Scroll to the element"):
             ActionChains(self.driver).scroll_to_element(scroll_element).perform()
             self.attach_screenshot()
-
-        ActionChains(self.driver).click(scroll_element).perform()
+        scroll_element.click()
