@@ -16,8 +16,7 @@ PASSWORD_TEXT = "123"
 @allure.suite("Checking the user account recovery")
 @allure.title("Checking the redirection to recovery after unsuccessful attempts of login")
 def test_go_to_recovery_after_many_fails(browser):
-    with allure.step(f"Open the {BASE_URL} page"):
-        BasePage(browser).get_url(BASE_URL)
+    BasePage(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
     login_page.enter_login(LOGIN_TEXT)

@@ -19,8 +19,7 @@ INCORRECT_LOGIN_DATA = ("Пользователь с таким телефоно
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when authorization form is empty")
 def test_empty_login_and_password(browser):
-    with allure.step(f"Open login page{BASE_URL}"):
-        BasePage(browser).get_url(BASE_URL)
+    BasePage(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
     login_page.click_login()
@@ -29,8 +28,7 @@ def test_empty_login_and_password(browser):
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when password in authorization form is empty")
 def test_empty_password(browser):
-    with allure.step(f"Open the login page{BASE_URL}"):
-        BasePage(browser).get_url(BASE_URL)
+    BasePage(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
     login_page.enter_login(LOGIN_TEXT)
