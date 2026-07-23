@@ -20,5 +20,6 @@ class RecoveryPageHelper(BasePage):
         self.find_element(RecoveryPageLocators.EMAIL_BUTTON)
         self.find_element(RecoveryPageLocators.QR_CODE)
         self.find_element(RecoveryPageLocators.SUPPORT_BUTTON)
-        with allure.step("Checking the correcting page load"):
+
+        with allure.step("Checking the correcting recover page load"):
             self.attach_screenshot()

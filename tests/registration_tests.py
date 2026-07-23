@@ -14,6 +14,7 @@ BASE_URL = "https://sn.rv-school.ru/"
 @allure.title("Checking the redirection to registration by phone with selection country")
 def test_registration_random_country(browser):
     BasePage(browser).get_url(BASE_URL)
+
     login_page = LoginPageHelper(browser)
     login_page.click_registration()
 
