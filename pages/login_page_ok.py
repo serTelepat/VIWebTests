@@ -1,0 +1,58 @@
+from pages.base_page import BasePageHelper
+from selenium.webdriver.common.by import By
+
+
+class LoginPageLocators:
+
+    ### ---------- BASIC LOGIN FORM OF ok.ru ---------- ###
+    # TABS
+    LOGIN_TAB = (By.XPATH, "//*[text()=\"Вход\"]")
+    QR_CODE_TAB = (By.XPATH, "//*[text()=\"QR-код\"]")
+
+    # FIELDS AND THEIR BUTTONS
+    LOGIN_FIELD = (By.ID, "field_email")
+    PASSWORD_FIELD = (By.ID, "field_password")
+    VISIBLE_PASSWORD_FIELD = (By.XPATH, "//*[@class=\"vkuiFormField__scrollContainer\"]//button")
+
+    # BUTTONS UNDER FIELDS
+    LOGIN_BUTTON = (By.XPATH, "//button[@data-test-id=\"enter-action\"]")
+    LOGIN_QR_CODE_BUTTON = (By.XPATH, "//button[@label=\"Войти по QR-коду\"]")
+    FORGET_ACCOUNT_BUTTON = (By.XPATH, "//button[@aria-label=\"Не получается войти?\"]")
+    REGISTRATION_BUTTON = (By.XPATH, "//div[contains(@class, \"LoginFormMain-module__bottom\")]//button")
+
+    # OAUTH LINKS
+    VK_O_AUTH = (By.XPATH, "//*[@data-l=\"t,vkc\"]//i")
+    MAIL_O_AUTH = (By.XPATH, "//*[@data-l=\"t,mailru\"]//i")
+    GOOGLE_O_AUTH =  (By.XPATH, "//*[@data-l=\"t,google\"]//i")
+    YANDEX_O_AUTH = (By.XPATH, "//*[@data-l=\"t,yandex\"]//i")
+    APPLE_O_AUTH = (By.XPATH, "//*[@data-l=\"t,apple\"]//i")
+
+    # ERROR TEXTS
+    EMPTY_LOGIN = (By.XPATH, "//*[text()=\"Введите логин\"]")
+    EMPTY_PASSWORD = (By.XPATH, "//*[text()=\"Введите пароль\"]")
+    INCORRECT_LOGIN_OR_PASSWORD = (By.XPATH, "//*[text()=\"Неправильно указан логин и/или пароль\"]")
+
+
+class OKLoginPageHelper(BasePageHelper):
+    def __init__(self, driver):
+        self.driver = driver
+        self.check_page()
+
+    def check_page(self):
+        self.find_element(LoginPageLocators.LOGIN_TAB)
+        self.find_element(LoginPageLocators.QR_CODE_TAB)
+
+        self.find_element(LoginPageLocators.LOGIN_FIELD)
+        self.find_element(LoginPageLocators.PASSWORD_FIELD)
+        self.find_element(LoginPageLocators.VISIBLE_PASSWORD_FIELD)
+
+        self.find_element(LoginPageLocators.LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.LOGIN_QR_CODE_BUTTON)
+        self.find_element(LoginPageLocators.FORGET_ACCOUNT_BUTTON)
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON)
+
+        self.find_element(LoginPageLocators.VK_O_AUTH)
+        self.find_element(LoginPageLocators.MAIL_O_AUTH)
+        self.find_element(LoginPageLocators.GOOGLE_O_AUTH)
+        self.find_element(LoginPageLocators.YANDEX_O_AUTH)
+        self.find_element(LoginPageLocators.APPLE_O_AUTH)
