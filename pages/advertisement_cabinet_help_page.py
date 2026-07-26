@@ -1,7 +1,7 @@
 import allure
 
 from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
+from pages.base_page import BasePageHelper
 
 
 class AdvertisementPageLocators:
@@ -91,7 +91,7 @@ class AdvertisementPageLocators:
     WRITE_TO_TECH_SUPPORT = (By.XPATH, "//*[@data-tsid='write-us-button']")
 
 
-class AdvertisementPageHelper(BasePage):
+class AdvertisementPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()

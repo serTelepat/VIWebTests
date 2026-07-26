@@ -1,7 +1,7 @@
 import allure
 import random
 
-from pages.base_page import BasePage
+from pages.base_page import BasePageHelper
 from selenium.webdriver.common.by import By
 
 
@@ -31,7 +31,7 @@ class RegistrationPageLocators:
     SELECTED_COUNTRY_OPTION = (By.CSS_SELECTOR, "select[data-test-id='phone-country-select'] option:checked")
 
 
-class RegistrationPageHelper(BasePage):
+class RegistrationPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()

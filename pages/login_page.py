@@ -1,5 +1,5 @@
 import allure
-from pages.base_page import BasePage
+from pages.base_page import BasePageHelper
 from selenium.webdriver.common.by import By
 
 
@@ -33,7 +33,7 @@ class LoginPageLocators:
     REGISTER_BUTTON_RECOVER_FORM = (By.ID, "lockout-register-btn")
 
 
-class LoginPageHelper(BasePage):
+class LoginPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
