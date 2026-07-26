@@ -51,7 +51,7 @@ class LoginPageHelper(BasePageHelper):
         self.find_element(LoginPageLocators.LOGIN_BUTTON_LEFT)
         self.find_element(LoginPageLocators.REGISTRATION_BUTTON_LEFT)
 
-        with allure.step("Checking the correcting login page load"):
+        with allure.step("Checking the correcting login page loading"):
             self.attach_screenshot()
 
     @allure.step("Clicking the button \"Войти\"")

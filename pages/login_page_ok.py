@@ -1,3 +1,5 @@
+import allure
+
 from pages.base_page import BasePageHelper
 from selenium.webdriver.common.by import By
 
@@ -56,3 +58,6 @@ class OKLoginPageHelper(BasePageHelper):
         self.find_element(LoginPageLocators.GOOGLE_O_AUTH)
         self.find_element(LoginPageLocators.YANDEX_O_AUTH)
         self.find_element(LoginPageLocators.APPLE_O_AUTH)
+
+        with allure.step("Checking the correcting ok.ru login page loading"):
+            self.attach_screenshot()

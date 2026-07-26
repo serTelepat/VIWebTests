@@ -13,5 +13,5 @@ class VKServicesHelper(BasePageHelper):
 
     def check_page(self):
         self.find_element(VKServicesLocators.VK_LOGO_HEADER)
-        with allure.step("Checking the correcting VK Services page load"):
+        with allure.step("Checking the correcting VK Services page loading"):
             self.attach_screenshot()

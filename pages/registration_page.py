@@ -48,7 +48,7 @@ class RegistrationPageHelper(BasePageHelper):
         self.find_element(RegistrationPageLocators.REGISTER_BY_PHONE_BTN)
         self.find_element(RegistrationPageLocators.LOGIN_BTN)
 
-        with allure.step("Checking the correcting registration page load"):
+        with allure.step("Checking the correcting registration page loading"):
             self.attach_screenshot()
 
     def check_page_for_phone_registration_form(self):

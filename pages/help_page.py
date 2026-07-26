@@ -75,7 +75,7 @@ class HelpPageHelper(BasePageHelper):
         self.find_element(HelpPageLocators.USEFUL_INFO_WIDGET)
         self.find_element(HelpPageLocators.ADVERTISEMENT_CABINET_WIDGET)
 
-        with allure.step("Checking the correcting help page load"):
+        with allure.step("Checking the correcting help page loading"):
             self.attach_screenshot()
 
     @allure.step("Scroll to the page element and click on it")
