@@ -15,7 +15,7 @@ BASE_URL = "https://ok.ru/"
 def test_open_vk_services(browser):
     base_page = BasePageHelper(browser)
     base_page.get_url(BASE_URL)
-    base_page.check_page()
+    base_page.check_toolbar()
 
     login_page = OKLoginPageHelper(browser)
     first_focus_page = login_page.get_window_id(0)
@@ -26,4 +26,6 @@ def test_open_vk_services(browser):
     login_page.switch_current_window(new_focus_page)
     vk_services_page = VKServicesHelper(browser)
     vk_services_page.switch_current_window(first_focus_page)
-    OKLoginPageHelper(browser)
+
+    new_login_page = OKLoginPageHelper(browser)
+    new_login_page.check_toolbar()

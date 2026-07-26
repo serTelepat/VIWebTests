@@ -21,13 +21,13 @@ class BasePageHelper:
     def __init__(self, driver):
         self.driver = driver
 
-    def check_page(self):
+    def check_toolbar(self):
         self.find_element(BasePageLocators.OK_LOGO_BUTTON_TOOLBAR)
         self.find_element(BasePageLocators.SEARCH_INPUT_TOOLBAR)
         self.find_element(BasePageLocators.SEARCH_BUTTON_TOOLBAR)
         self.find_element(BasePageLocators.VK_SERVICES_BUTTON)
 
-        with allure.step("Checking the correcting page load"):
+        with allure.step("Checking the correcting page toolbar loading"):
             self.attach_screenshot()
 
 
@@ -53,13 +53,17 @@ class BasePageHelper:
     @allure.step("Click the VK Services button")
     def click_vk_services_button(self):
         self.find_element(BasePageLocators.VK_SERVICES_BUTTON).click()
+        self.attach_screenshot()
 
     @allure.step("Click the 'more' button")
     def click_more_button(self):
         self.find_element(BasePageLocators.MORE_BUTTON_VK_SERVICES_MENU).click()
+        self.attach_screenshot()
 
+    @allure.step("Get window hash for switching")
     def get_window_id(self, index):
         return self.driver.window_handles[index]
 
+    @allure.step("Switching the browser window")
     def switch_current_window(self, window_id):
         self.driver.switch_to.window(window_id)
