@@ -2,34 +2,11 @@ import allure
 
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.by import By
-
-
-class BasePageLocators:
-
-    ### ---------- BASIC HELP PAGE ---------- ###
-    OK_LOGO_BUTTON_TOOLBAR = (By.XPATH, "//*[@data-l='t,logo']//div")
-    SEARCH_INPUT_TOOLBAR = (By.XPATH, "//div[@id='topPanel']//*[@data-tsid='toolbar-search-input']")
-    SEARCH_BUTTON_TOOLBAR = (By.XPATH, "//div[@id='topPanel']//*[@data-tsid='toolbar-searchButton']")
-    VK_SERVICES_BUTTON = (By.XPATH, "//*[@aria-label='Сервисы VK']")
-
-    ## VK SERVICES
-    MORE_BUTTON_VK_SERVICES_MENU = (By.XPATH, "//*[@data-l='t,more']")
 
 
 class BasePageHelper:
     def __init__(self, driver):
         self.driver = driver
-
-    def check_toolbar(self):
-        self.find_element(BasePageLocators.OK_LOGO_BUTTON_TOOLBAR)
-        self.find_element(BasePageLocators.SEARCH_INPUT_TOOLBAR)
-        self.find_element(BasePageLocators.SEARCH_BUTTON_TOOLBAR)
-        self.find_element(BasePageLocators.VK_SERVICES_BUTTON)
-
-        with allure.step("Checking the correcting page toolbar loading"):
-            self.attach_screenshot()
-
 
     def find_element(self, locator, time=5):
         return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_element_located(locator),
@@ -43,26 +20,26 @@ class BasePageHelper:
         return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_all_elements_located(locator),
                                                       message=f"{locator} elements not found")
 
-    @allure.step("Opening the page")
+    @allure.step("Opening the {url} page")
     def get_url(self, url):
         return self.driver.get(url)
 
     def attach_screenshot(self):
         allure.attach(self.driver.get_screenshot_as_png(), "Screenshot", allure.attachment_type.PNG)
 
-    @allure.step("Click the VK Services button")
-    def click_vk_services_button(self):
-        self.find_element(BasePageLocators.VK_SERVICES_BUTTON).click()
+    @allure.step("Click the {element_locator[1]}")
+    def click_element(self, element_locator):
+        self.find_element(element_locator[0]).click()
         self.attach_screenshot()
 
-    @allure.step("Click the 'more' button")
-    def click_more_button(self):
-        self.find_element(BasePageLocators.MORE_BUTTON_VK_SERVICES_MENU).click()
+    @allure.step("Input the '{text}' text in the {element_locator[1]}")
+    def input_text(self, element_locator, text):
+        self.find_element(element_locator[0]).send_keys(text)
         self.attach_screenshot()
 
     @allure.step("Get window hash for switching")
-    def get_window_id(self, index):
-        return self.driver.window_handles[index]
+    def get_window_id(self, index_page):
+        return self.driver.window_handles[index_page]
 
     @allure.step("Switching the browser window")
     def switch_current_window(self, window_id):
