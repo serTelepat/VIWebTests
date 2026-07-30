@@ -7,30 +7,30 @@ class LoginPageLocators:
 
     ### ---------- BASIC LOGIN FORM ---------- ###
     # TABS
-    LOGIN_TAB = (By.ID, "tabLogin")
-    QR_CODE_TAB = (By.ID, "tabQr")
+    LOGIN_TAB = (By.ID, "tabLogin"), "login tab"
+    QR_CODE_TAB = (By.ID, "tabQr"), "qr code tab"
 
     # FIELDS AND THEIR BUTTONS
-    LOGIN_FIELD = (By.ID, "login-phone-email")
-    PASSWORD_FIELD = (By.ID, "login-password")
+    LOGIN_FIELD = (By.ID, "login-phone-email"), "login field"
+    PASSWORD_FIELD = (By.ID, "login-password"), "password field"
     # VISIBLE_PASSWORD_FIELD = (By.ID, "")
 
     # BUTTONS UNDER FIELDS
-    LOGIN_BUTTON = (By.ID, "login-submit-btn")
-    FORGET_PASSWORD_BUTTON = (By.ID, "forgot-password-link")
+    LOGIN_BUTTON = (By.ID, "login-submit-btn"), "login button"
+    FORGET_PASSWORD_BUTTON = (By.ID, "forgot-password-link"), "forgot password link"
 
     # BUTTONS LEFT FORM
-    LOGIN_BUTTON_LEFT = (By.ID,  "hero-login-btn")
-    REGISTRATION_BUTTON_LEFT = (By.ID, "hero-register-btn")
+    LOGIN_BUTTON_LEFT = (By.ID,  "hero-login-btn"), "left login button"
+    REGISTRATION_BUTTON_LEFT = (By.ID, "hero-register-btn"), "left register button"
 
     # ERROR TEXTS
-    ERROR_TEXT_FORM = (By.ID, "login-error")
+    ERROR_TEXT_FORM = (By.ID, "login-error"), "error label"
 
     ### ---------- ADDITIONAL RESTORE PROFILE FORM ---------- ###
     # BUTTONS
-    RECOVER_BUTTON_RECOVER_FORM = (By.ID, "lockout-recover-btn")
-    CANCEL_RECOVER_BUTTON_RECOVER_FORM = (By.ID, "lockout-cancel-btn")
-    REGISTER_BUTTON_RECOVER_FORM = (By.ID, "lockout-register-btn")
+    RECOVER_BUTTON_RECOVER_FORM = (By.ID, "lockout-recover-btn"), "recover button"
+    CANCEL_RECOVER_BUTTON_RECOVER_FORM = (By.ID, "lockout-cancel-btn"), "cancel button"
+    REGISTER_BUTTON_RECOVER_FORM = (By.ID, "lockout-register-btn"), "'registration' button"
 
 
 class LoginPageHelper(BasePageHelper):
