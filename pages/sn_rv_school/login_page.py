@@ -54,38 +54,31 @@ class LoginPageHelper(BasePageHelper):
         with allure.step("Checking the correcting login page loading"):
             self.attach_screenshot()
 
-    @allure.step("Clicking the button \"Войти\"")
     def click_login(self):
-        self.attach_screenshot()
-        self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
+        self.click_element(LoginPageLocators.LOGIN_BUTTON)
 
     @allure.step("Getting error text")
     def get_error_text(self):
-        self.attach_screenshot()
-        return self.find_element(LoginPageLocators.ERROR_TEXT_FORM).text
+        return self.get_text(LoginPageLocators.ERROR_TEXT_FORM)
 
     @allure.step("Entering the login")
     def enter_login(self, login):
-        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(login)
-        self.attach_screenshot()
+        self.input_text(LoginPageLocators.LOGIN_FIELD, login)
 
     @allure.step("Entering the password")
     def enter_password(self, password):
-        self.find_element(LoginPageLocators.PASSWORD_FIELD).send_keys(password)
-        self.attach_screenshot()
+        self.input_text(LoginPageLocators.PASSWORD_FIELD, password)
 
     @allure.step("Go to recovery page")
     def click_recovery(self):
-        self.attach_screenshot()
-        self.find_element(LoginPageLocators.RECOVER_BUTTON_RECOVER_FORM).click()
+        self.click_element(LoginPageLocators.RECOVER_BUTTON_RECOVER_FORM)
 
     @allure.step("Log in until the recovery form appears")
     def click_login_until_appearing_recover_form(self):
         for attempt in range(3):
             self.attach_screenshot()
-            self.find_element_to_clickable(LoginPageLocators.LOGIN_BUTTON).click()
+            self.click_clickable_element(LoginPageLocators.LOGIN_BUTTON)
 
     @allure.step("Click the registration button")
     def click_registration(self):
-        self.attach_screenshot()
-        self.find_element(LoginPageLocators.REGISTRATION_BUTTON_LEFT).click()
+        self.click_element(LoginPageLocators.REGISTRATION_BUTTON_LEFT)
