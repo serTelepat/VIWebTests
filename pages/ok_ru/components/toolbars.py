@@ -34,7 +34,7 @@ class LoginToolbarWithSearchBar(BasePageHelper):
         self.input_text(LoginToolbarLocators.SEARCH_INPUT, text)
 
     def click_search_button(self):
-        self.find_element(LoginToolbarLocators.SEARCH_BUTTON)
+        self.click_element(LoginToolbarLocators.SEARCH_BUTTON)
 
     def click_vk_services_button(self):
         self.click_element(LoginToolbarLocators.VK_SERVICES_BUTTON)
@@ -62,6 +62,7 @@ class ToolbarWithoutSearchBar(BasePageHelper):
 
     def click_logo(self):
         self.click_element(RegistrationToolbarLocators.OK_LOGO_TOOLBAR)
+
 
 ### ---------- HELP PAGE ---------- ###
 class HelpToolbarLocators:
