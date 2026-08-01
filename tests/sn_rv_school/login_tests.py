@@ -2,7 +2,7 @@ import allure
 
 from core.base_test import browser
 from pages.base_page import BasePageHelper
-from pages.login_page import LoginPageHelper
+from pages.sn_rv_school.login_page import LoginPageHelper
 
 
 #### ------- CONSTANTS ------- ####

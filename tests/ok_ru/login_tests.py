@@ -9,6 +9,7 @@ from pages.ok_ru.login_page import LoginPageHelper
 BASE_URL = "https://ok.ru/"
 
 LOGIN_TEXT = "login_gav_gav"
+PASSWORD_TEXT = "123QF"
 
 EMPTY_LOGIN_ERROR = "Введите логин"
 EMPTY_PASSWORD_ERROR = "Введите пароль"
@@ -27,7 +28,7 @@ def test_empty_login_and_password(browser):
 
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when password is empty")
-def test_empty_login_and_password(browser):
+def test_empty_password(browser):
     BasePageHelper(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
@@ -37,11 +38,11 @@ def test_empty_login_and_password(browser):
 
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when login and/or password are incorrect")
-def test_empty_password(browser):
+def test_incorrect_login_datas(browser):
     BasePageHelper(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
     login_page.enter_login(LOGIN_TEXT)
-    login_page.enter_password(EMPTY_PASSWORD_ERROR)
+    login_page.enter_password(PASSWORD_TEXT)
     login_page.click_login()
     assert login_page.get_error_text() == INCORRECT_LOGIN_DATA
