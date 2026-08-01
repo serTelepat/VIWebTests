@@ -96,16 +96,19 @@ class LoginPageHelper(BasePageHelper):
     def enter_password(self, password):
         self.input_text(LoginPageLocators.PASSWORD_FIELD, password)
 
-    @allure.step("Go to recovery page")
+    @allure.step("Going to recovery page")
     def click_recovery(self):
         self.click_element(LoginPageLocators.RECOVER_BUTTON)
 
-    @allure.step("Log in until the recovery form appears")
+    @allure.step("Logging until the recovery form appears")
     def click_login_until_appearing_recover_form(self):
         for attempt in range(3):
             self.attach_screenshot()
             self.click_clickable_element(LoginPageLocators.LOGIN_BUTTON)
 
-    @allure.step("Click the registration button")
     def click_registration(self):
         self.click_element(LoginPageLocators.RECOVER_BUTTON)
+
+    def go_to_vk_services_page(self):
+        self.toolbar.click_vk_services_button()
+        self.toolbar.click_more_button()

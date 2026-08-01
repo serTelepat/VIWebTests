@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 
 class VKServicesLocators:
-    VK_LOGO_HEADER = (By.XPATH,  "//header//*[@id='header-logo']")
+    VK_LOGO_HEADER = (By.XPATH,  "//header//*[@id='header-logo']"), "VK logo"
 
 class VKServicesHelper(BasePageHelper):
     def __init__(self, driver):

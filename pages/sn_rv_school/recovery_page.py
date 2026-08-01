@@ -4,10 +4,10 @@ from selenium.webdriver.common.by import By
 
 
 class RecoveryPageLocators:
-    PHONE_BUTTON = (By.ID, "recovery-phone-btn")
-    EMAIL_BUTTON = (By.ID, "recovery-email-btn")
-    SUPPORT_BUTTON = (By.ID, "support-contact-btn")
-    QR_CODE  = (By.ID, "qr-image")
+    PHONE_BUTTON = (By.ID, "recovery-phone-btn"), "phone number button"
+    EMAIL_BUTTON = (By.ID, "recovery-email-btn"), "email button"
+    SUPPORT_BUTTON = (By.ID, "support-contact-btn"), "contact support button"
+    QR_CODE  = (By.ID, "qr-image"), "qr code button"
 
 
 class RecoveryPageHelper(BasePageHelper):
