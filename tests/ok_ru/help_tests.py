@@ -2,8 +2,8 @@ import allure
 
 from core.base_test import browser
 from pages.base_page import BasePageHelper
-from pages.help_page import HelpPageLocators, HelpPageHelper
-from pages.advertisement_cabinet_help_page import AdvertisementPageHelper
+from pages.ok_ru.help_page import HelpPageLocators, HelpPageHelper
+from pages.ok_ru.advertisement_cabinet_help_page import AdvertisementPageHelper
 
 
 #### ------- CONSTANTS ------- ####
