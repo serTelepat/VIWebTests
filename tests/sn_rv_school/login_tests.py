@@ -1,8 +1,8 @@
 import allure
 
 from core.base_test import browser
-from pages.base_page import BasePage
-from pages.login_page import LoginPageHelper
+from pages.base_page import BasePageHelper
+from pages.sn_rv_school.login_page import LoginPageHelper
 
 
 #### ------- CONSTANTS ------- ####
@@ -12,14 +12,14 @@ LOGIN_TEXT = "login_gav_gav"
 
 EMPTY_LOGIN_OR_PASSWORD_ERROR = "Введите телефон, email или логин и пароль."
 INCORRECT_LOGIN_DATA = ("Пользователь с таким телефоном, почтой или логином не найден. "
-                        + "Проверьте данные и попробуйте снова.")
+                        "Проверьте данные и попробуйте снова.")
 
 
 #### ------- TESTS ------ ####
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when authorization form is empty")
 def test_empty_login_and_password(browser):
-    BasePage(browser).get_url(BASE_URL)
+    BasePageHelper(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
     login_page.click_login()
@@ -28,7 +28,7 @@ def test_empty_login_and_password(browser):
 @allure.suite("Checking authorization form")
 @allure.title("Checking error when password in authorization form is empty")
 def test_empty_password(browser):
-    BasePage(browser).get_url(BASE_URL)
+    BasePageHelper(browser).get_url(BASE_URL)
 
     login_page = LoginPageHelper(browser)
     login_page.enter_login(LOGIN_TEXT)
