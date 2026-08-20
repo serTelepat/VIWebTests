@@ -4,6 +4,10 @@ from selenium import webdriver
 
 @pytest.fixture(scope="session")
 def browser():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--lang=ru_RU")
+    options.add_argument("--start-maximized")
+    driver = webdriver.Remote(command_executor="http://31.130.148.204:4444", options=options)
     yield driver
-    driver.quit()
+    if driver:
+        driver.quit()
