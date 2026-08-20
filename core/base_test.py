@@ -9,4 +9,5 @@ def browser():
     options.add_argument("--start-maximized")
     driver = webdriver.Remote(command_executor="http://31.130.148.204:4444", options=options)
     yield driver
-    driver.quit()
+    if driver:
+        driver.quit()
