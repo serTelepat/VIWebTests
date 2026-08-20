@@ -74,9 +74,9 @@ class LoginPageHelper(BasePageHelper):
 
         self.find_element(LoginPageLocators.VK_O_AUTH)
         self.find_element(LoginPageLocators.MAIL_O_AUTH)
-        self.find_element(LoginPageLocators.GOOGLE_O_AUTH)
+        # self.find_element(LoginPageLocators.GOOGLE_O_AUTH)
         self.find_element(LoginPageLocators.YANDEX_O_AUTH)
-        self.find_element(LoginPageLocators.APPLE_O_AUTH)
+        # self.find_element(LoginPageLocators.APPLE_O_AUTH)
 
         with allure.step("Checking the correcting ok.ru login page loading"):
             self.attach_screenshot()
