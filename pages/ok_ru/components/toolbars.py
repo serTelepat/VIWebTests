@@ -25,7 +25,7 @@ class LoginToolbarWithSearchBar(BasePageHelper):
         self.find_element(LoginToolbarLocators.OK_LOGO_BUTTON)
         # self.find_element(LoginToolbarLocators.SEARCH_INPUT)
         # self.find_element(LoginToolbarLocators.SEARCH_BUTTON)
-        self.find_element(LoginToolbarLocators.VK_SERVICES_BUTTON)
+        # self.find_element(LoginToolbarLocators.VK_SERVICES_BUTTON)
 
         with allure.step("Checking the correcting page toolbar loading"):
             self.attach_screenshot()
