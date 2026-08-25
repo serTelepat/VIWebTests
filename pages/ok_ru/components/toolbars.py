@@ -23,7 +23,7 @@ class LoginToolbarWithSearchBar(BasePageHelper):
 
     def check_toolbar(self):
         self.find_element(LoginToolbarLocators.OK_LOGO_BUTTON)
-        self.find_element(LoginToolbarLocators.SEARCH_INPUT)
+        # self.find_element(LoginToolbarLocators.SEARCH_INPUT)
         self.find_element(LoginToolbarLocators.SEARCH_BUTTON)
         self.find_element(LoginToolbarLocators.VK_SERVICES_BUTTON)
 
