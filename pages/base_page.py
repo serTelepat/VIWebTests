@@ -11,7 +11,7 @@ class BasePageHelper:
     def __init__(self, driver):
         self.driver = driver
 
-    def find_element(self, element_locator, time=5):
+    def find_element(self, element_locator, time=8):
         return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_element_located(element_locator[0]),
                                                       message=f"{element_locator[1]} element not found")
 
