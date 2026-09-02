@@ -22,13 +22,13 @@ class LoginToolbarLocators:
 class LoginToolbarWithSearchBar(BasePageHelper):
 
     def check_toolbar(self):
+        with allure.step("Checking the correcting page toolbar loading"):
+            self.attach_screenshot()
+
         self.find_element(LoginToolbarLocators.OK_LOGO_BUTTON)
         self.find_element(LoginToolbarLocators.SEARCH_INPUT)
         self.find_element(LoginToolbarLocators.SEARCH_BUTTON)
         self.find_element(LoginToolbarLocators.VK_SERVICES_BUTTON)
-
-        with allure.step("Checking the correcting page toolbar loading"):
-            self.attach_screenshot()
 
     def input_text_in_searchbar(self, text):
         self.input_text(LoginToolbarLocators.SEARCH_INPUT, text)
