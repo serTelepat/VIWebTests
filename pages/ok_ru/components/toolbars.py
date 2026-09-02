@@ -71,7 +71,7 @@ class HelpToolbarLocators:
         LOCATOR_NAME = (By.METHOD, "selector"), "element name"
     """
 
-    LOGO_BUTTON = (By.XPATH, "//*[@class='toolbar_logo_img']"), "logo"
+    OK_LOGO_BUTTON = (By.XPATH, "//*[@data-l='t,logo'][@tsid='toolbar_logo']"), "'logo'"
     SEARCH_INPUT = (By.XPATH, "//*[@id='topPanel']//*[@data-tsid='toolbar-search-input']"), "search input"
     SEARCH_BUTTON = (By.XPATH, "//*[@class='toolbar_search_mini-button']"), "search button"
     VK_SERVICES_BUTTON = (By.XPATH, "//*[@aria-label='Сервисы VK']"), "'VK Services' button"
@@ -83,7 +83,7 @@ class HelpToolbarLocators:
 
 class HelpToolbarHelper(BasePageHelper):
     def check_toolbar(self):
-        self.find_element(HelpToolbarLocators.LOGO_BUTTON)
+        self.find_element(HelpToolbarLocators.OK_LOGO_BUTTON)
         self.find_element(HelpToolbarLocators.SEARCH_BUTTON)
         self.find_element(HelpToolbarLocators.VK_SERVICES_BUTTON)
         self.find_element(HelpToolbarLocators.LOGIN_BUTTON)
