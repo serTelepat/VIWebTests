@@ -10,7 +10,7 @@ class LoginToolbarLocators:
         LOCATOR_NAME = (By.METHOD, "selector"), "element name"
     """
 
-    OK_LOGO_BUTTON = (By.XPATH, "//*[@data-l='t,logo']"), "'logo'"
+    OK_LOGO_BUTTON = (By.XPATH, "//*[@data-l='t,logo'][@tsid='toolbar_logo']"), "'logo'"
     SEARCH_INPUT = (By.XPATH, "//div[@id='topPanel']//*[@data-tsid='toolbar-search-input']"), "search input"
     SEARCH_BUTTON = (By.XPATH, "//div[@id='topPanel']//*[@data-tsid='toolbar-searchButton']"), "search button"
     VK_SERVICES_BUTTON = (By.XPATH, "//*[@aria-label='Сервисы VK']"), "'VK Services' button"
